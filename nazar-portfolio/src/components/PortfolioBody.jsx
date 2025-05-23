@@ -1,14 +1,25 @@
 import { Typewriter } from 'react-simple-typewriter';
 import '../styles/PortfolioBody.css';
+import { motion } from "motion/react";
 
 export default function PortfolioBody() {
     return (
-        <div className='portfolio-body'>
+        <motion.div
+            initial={{ opacity: 0, transform: "translateY(-60px)" }}
+            animate={{ opacity: 1, transform: "translateY(0px)" }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className='portfolio-body'
+        >
             <div className='title-block'> 
                 <span className='greeting'>Hi, I'm</span>
-                <h1 className='main-title'>
+                <motion.h1 
+                    initial={{ opacity: 0, transform: "translateX(-60px)" }}
+                    animate={{ opacity: 1, transform: "translateX(0px)" }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
+                    className='main-title'
+                >
                     Nazar <span className='outlined'>Blanco</span>
-                </h1>
+                </motion.h1>
                 <span className='and-im'>
                     and I'm{' '}
                     <span className='typing-title'>
@@ -29,6 +40,6 @@ export default function PortfolioBody() {
                     </span>
                 </span>
             </div>
-        </div>
-    )
+        </motion.div>
+    );
 }
